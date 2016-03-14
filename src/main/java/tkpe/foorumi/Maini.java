@@ -31,7 +31,7 @@ public class Maini {
             map.put("langat", alueDao.findOne(
                             Integer.parseInt(
                                     req.params("alue")))
-                    .getLangatSorted());
+                    .getLangat());//getLangatSorted() 
             return new ModelAndView(map, "alue");
         }, new ThymeleafTemplateEngine());
         

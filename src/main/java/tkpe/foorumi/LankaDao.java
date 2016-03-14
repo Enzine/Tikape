@@ -64,6 +64,7 @@ public class LankaDao implements Dao<Lanka, Integer> {
                 lankojenAlueet.put(fk, new ArrayList<>());
             }
             lankojenAlueet.get(fk).add(l);
+            langat.add(l);
         }
         
         rs.close();

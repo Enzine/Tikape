@@ -27,6 +27,18 @@ public class AlueDao implements Dao<Alue, Integer> {
         String nimi = rs.getString("nimi");
 
         Alue a = new Alue(nimi);
+        
+        LankaDao ld = new LankaDao(database, this);
+        
+        List<Lanka> palautettavat = new ArrayList<>();
+        List<Lanka> langat = ld.findAll();
+        
+        for (Lanka l : langat) {
+            if(l.getAlue().getId() == key)
+                palautettavat.add(l);
+        }
+        
+        a.setLangat(palautettavat); //
 
         rs.close();
         stmt.close();

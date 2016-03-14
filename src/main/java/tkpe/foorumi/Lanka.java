@@ -44,6 +44,9 @@ public class Lanka {
     }
     
     public Viesti getTuoreinViesti(){
+        if(viestit.isEmpty()){
+            return new Viesti("EI VIESTEJÄ xD", "SYSTEM32");
+        }
         Viesti tuorein = viestit.get(0);
         
         for (int i = 1; i < viestit.size(); i++) {
