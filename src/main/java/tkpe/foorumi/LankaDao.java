@@ -37,7 +37,8 @@ public class LankaDao implements Dao<Lanka, Integer> {
 
         l.setId(id);
         l.setAlue(this.alueDao.findOne(alue));
-
+        
+        
         return l;
     }
 

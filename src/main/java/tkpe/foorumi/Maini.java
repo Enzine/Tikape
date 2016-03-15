@@ -1,6 +1,8 @@
 package tkpe.foorumi;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import spark.ModelAndView;
 import static spark.Spark.*;
 import spark.template.thymeleaf.ThymeleafTemplateEngine;
@@ -31,18 +33,21 @@ public class Maini {
             map.put("langat", alueDao.findOne(
                             Integer.parseInt(
                                     req.params("alue")))
-                    .getLangat());//getLangatSorted() 
+                    .getLangat());//getLangatSorted() TIMESTAMP KORJATTAVA TÄTÄ VARTEN
             return new ModelAndView(map, "alue");
         }, new ThymeleafTemplateEngine());
         
         // LANGAN TULOSTUS
         get("/:alue/:lanka", (req, res) -> {
             HashMap map = new HashMap<>();
-            map.put("viestit", lankaDao
-                    .findOne(Integer
-                            .parseInt(req
-                                    .params("lanka")))
-                    .getviestitSorted());
+            List<Viesti> l = new ArrayList<>();
+            l.add(new Viesti("xDDDDD", "make"));
+            map.put("viestit", l);
+//            map.put("viestit", lankaDao
+//                    .findOne(
+//                            Integer.parseInt(req
+//                                    .params("lanka")))
+//                    .getViestitSorted()); //TÄMÄKIN VAATII MELKO VARMASTI TIMESTAMPIEN KORJAAMISEN
             return new ModelAndView(map, "lanka");
         }, new ThymeleafTemplateEngine());
         

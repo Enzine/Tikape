@@ -34,11 +34,12 @@ public class Lanka {
         return viestit;
     }
     
-    public List<Viesti> getviestitSorted(){
+    public List<Viesti> getViestitSorted(){
         List<Viesti> v = getViestit();
         Collections.sort(v, 
-                (v1, v2) -> 
-                    v1.getAika().compareTo(v2.getAika())
+                (v1, v2) -> v1.getAika()
+                            .compareTo(
+                            v2.getAika())
         );
         return v;
     }
