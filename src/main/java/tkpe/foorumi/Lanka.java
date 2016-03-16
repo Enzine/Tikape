@@ -34,16 +34,20 @@ public class Lanka {
         return viestit;
     }
     
-    public List<Viesti> getviestitSorted(){
+    public List<Viesti> getViestitSorted(){
         List<Viesti> v = getViestit();
         Collections.sort(v, 
-                (v1, v2) -> 
-                    v1.getAika().compareTo(v2.getAika())
+                (v1, v2) -> v1.getAika()
+                            .compareTo(
+                            v2.getAika())
         );
         return v;
     }
     
     public Viesti getTuoreinViesti(){
+        if(viestit.isEmpty()){
+            return new Viesti("EI VIESTEJÄ xD", "SYSTEM32");
+        }
         Viesti tuorein = viestit.get(0);
         
         for (int i = 1; i < viestit.size(); i++) {

@@ -37,7 +37,8 @@ public class LankaDao implements Dao<Lanka, Integer> {
 
         l.setId(id);
         l.setAlue(this.alueDao.findOne(alue));
-
+        
+        
         return l;
     }
 
@@ -64,6 +65,7 @@ public class LankaDao implements Dao<Lanka, Integer> {
                 lankojenAlueet.put(fk, new ArrayList<>());
             }
             lankojenAlueet.get(fk).add(l);
+            langat.add(l);
         }
         
         rs.close();
