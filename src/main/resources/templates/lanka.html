@@ -12,5 +12,13 @@
                 <span th:text="${viesti.sisalto}">sisalto</span>
             </li>
         </ul>
+        
+        <form method="POST" action="/baneplane">
+            Viesti (max. 1000 merkkiä):<br/>
+            <input type="text" name="viesti"/><br/>
+            Allekirjoitus (max 30 merkkiä):<br/>
+            <input type="text" name="lahettaja"/>
+            <input type="submit" name="Lähetä viesti"/>
+        </form>
     </body>
 </html>
